@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Full-Width Add to Cart
 Description: By default, WooCommerce places the add-to-cart product template for all products inside the "summary" section, leaving very limited space for product types with long add-to-cart forms. This plugin allows you to move the WooCommerce single add-to-cart content right before the tabs section, only for the specified product types.
 Version:     1.0
-Author:      Manos Psychogyiopoulos and Bryce Adams
+Author:      Manos Psychogyiopoulos, Bryce Adams
 Author URI:  http://www.woothemes.com/
 License:     GPL v2
 */
@@ -30,6 +30,11 @@ class WC_Full_Page_Add_To_Cart {
 		add_action( 'woocommerce_after_single_product_summary', __CLASS__ . '::wc_fw_single_add_to_cart_wrapper_end', 6 );
 	}
 
+	function wc_fw_get_types_to_move() {
+
+		return apply_filters( 'woocommerce_full_width_add_to_cart_types', array( 'composite' ) );
+	}
+
 	function wc_fw_single_add_to_cart_wrapper_start() {
 	    echo '<div class="add-to-cart-summary" style="clear:both;">';
 	}
@@ -43,7 +48,7 @@ class WC_Full_Page_Add_To_Cart {
 		global $product;
 
 		// Get types to move
-		$moved_types = apply_filters( 'woocommerce_full_width_add_to_cart_types', array( 'composite' ) );
+		$moved_types = self::wc_fw_get_types_to_move();
 
 		if ( ! empty( $moved_types ) && is_array( $moved_types ) && in_array( $product->product_type, $moved_types ) ) {
 			woocommerce_template_single_add_to_cart();
@@ -55,7 +60,7 @@ class WC_Full_Page_Add_To_Cart {
 		global $product;
 
 		// Get types to move
-		$moved_types = apply_filters( 'woocommerce_full_width_add_to_cart_types', array( 'composite' ) );
+		$moved_types = self::wc_fw_get_types_to_move();
 
 		if ( empty( $moved_types ) || ( ! is_array( $moved_types ) ) )
 			woocommerce_template_single_add_to_cart();
