@@ -6,8 +6,8 @@ Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, l
 Requires at least: 3.7.0
 Tested up to: 4.0.0
 Stable tag: 1.0
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 If the add-to-cart form of your products appears very narrow or squeezed, you can use this plugin to move the add-to-cart form under the product image and summary section. The plugin allows you to select specific product types that will use this modified, full-width layout.
 
