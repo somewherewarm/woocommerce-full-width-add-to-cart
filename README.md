@@ -1,4 +1,4 @@
-WooCommerce Full-Width Add to Cart
+WooCommerce Full-Width Add-to-Cart Forms
 ======================
 
-By default, WooCommerce places the add-to-cart product template for all products inside the "summary" section, leaving very limited space for product types with long add-to-cart forms. This plugin allows you to move the WooCommerce single add-to-cart content right before the tabs section, only for the specified product types.
+If the add-to-cart form of your products appears very narrow or squeezed, you can use this plugin to move the add-to-cart form under the product image and summary section. The plugin allows you to select specific product types that will use this modified, full-width layout.
