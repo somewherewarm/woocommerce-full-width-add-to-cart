@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Full-Width Add to Cart Forms
 Description: If the add-to-cart form of your products appears very narrow or squeezed, you can use this plugin to move the add-to-cart form under the product image and summary section. The plugin allows you to select specific product types that will use this modified, full-width layout.
-Version:     1.0
+Version:     1.1
 Author:      SomewhereWarm
 Author URI:  http://www.somewherewarm.net
 */
