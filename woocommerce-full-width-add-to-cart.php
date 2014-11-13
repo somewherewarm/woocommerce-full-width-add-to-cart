@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: WooCommerce Full-Width Add to Cart Forms
-Description: If the add-to-cart form of your products appears very narrow or squeezed, you can use this plugin to move the add-to-cart form under the product image and summary section. The plugin allows you to select specific product types that will use this modified, full-width layout.
-Version:     1.1
+Description: A handy plugin for optimizing the add-to-cart form layout of complex WooCommerce product types, which may appear very narrow or squeezed.
+Version:     1.0.1
 Author:      SomewhereWarm
 Author URI:  http://www.somewherewarm.net
 */
@@ -20,7 +20,7 @@ class WC_Full_Page_Add_To_Cart {
 		add_filter( 'woocommerce_get_settings_products', __CLASS__ . '::wc_fw_all_settings', 10, 2 );
 	}
 
-	function wc_fw_single_add_to_cart() {
+	public static function wc_fw_single_add_to_cart() {
 
 		// Unhook 'woocommerce_template_single_add_to_cart' from 'woocommerce_single_product_summary' 30
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
@@ -32,14 +32,14 @@ class WC_Full_Page_Add_To_Cart {
 		add_action( 'woocommerce_after_single_product_summary', __CLASS__ . '::wc_fw_single_add_to_cart_after_summary', 5 );
 	}
 
-	function wc_fw_get_types_to_move() {
+	public static function wc_fw_get_types_to_move() {
 
 		$moved_types = get_option( 'wc_fw_add_to_cart_layout_types', array() );
 
 		return apply_filters( 'woocommerce_full_width_add_to_cart_types', $moved_types );
 	}
 
-	function wc_fw_single_add_to_cart_after_summary() {
+	public static function wc_fw_single_add_to_cart_after_summary() {
 
 		global $product;
 
@@ -53,7 +53,7 @@ class WC_Full_Page_Add_To_Cart {
 		}
 	}
 
-	function wc_fw_template_single_add_to_cart() {
+	public static function wc_fw_template_single_add_to_cart() {
 
 		global $product;
 
@@ -67,14 +67,14 @@ class WC_Full_Page_Add_To_Cart {
 
 	}
 
-	function wc_fw_add_section( $sections ) {
+	public static function wc_fw_add_section( $sections ) {
 
 		$sections[ 'wc_fw_add_to_cart' ] = __( 'Add-to-Cart Form Layout', 'woocommerce-full-width-add-to-cart' );
 
 		return $sections;
 	}
 
-	function wc_fw_all_settings( $settings, $current_section ) {
+	public static function wc_fw_all_settings( $settings, $current_section ) {
 
 		if ( $current_section == 'wc_fw_add_to_cart' ) {
 
@@ -110,7 +110,7 @@ class WC_Full_Page_Add_To_Cart {
 
 	}
 
-	function get_product_types() {
+	public static function get_product_types() {
 
 		$types = array();
 
