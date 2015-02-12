@@ -1,4 +1,4 @@
-WooCommerce Full-Width Add-to-Cart Forms
+WooCommerce Stacked Add-to-Cart Product Forms
 ======================
 
-If the add-to-cart form of your products appears very narrow or squeezed, you can use this plugin to move the add-to-cart form under the product image and summary section. The plugin allows you to select specific product types that will use this modified, full-width layout.
+A handy plugin for stacking the add-to-cart section of complex WooCommerce product types under the main image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.

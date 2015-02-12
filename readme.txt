@@ -1,15 +1,15 @@
-=== WooCommerce Full-Width Add to Cart Forms ===
+=== WooCommerce Stacked Add-to-Cart Product Forms ===
 
 Contributors: franticpsyx
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
-Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, layout
+Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 3.7.0
-Tested up to: 4.0.0
-Stable tag: 1.0.1
+Tested up to: 4.1.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A handy plugin for optimizing the add-to-cart form layout of complex WooCommerce product types, which may appear very narrow or squeezed.
+A handy plugin for stacking the add-to-cart section of complex WooCommerce product types under the main image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
 
 == Description ==
 
@@ -19,7 +19,7 @@ However, this layout is not particularly suitable for complex product types, suc
 
 If you are having issues with very narrow or squeezed product add-to-cart forms, you can use this plugin to move the add-to-cart form under the product image and summary section. 
 
-The plugin adds an "Add-to-Cart Form Layout" section under "WooCommerce→Settings→Products", where you can select which product types should use the modified, full-width layout.
+The plugin adds a "Force Stacked Layout" option under the WooCommerce `Settings->Products->Display` section, where you can select which product types should use the modified, stacked layout.
 
 == Installation ==
 
@@ -28,6 +28,9 @@ The plugin adds an "Add-to-Cart Form Layout" section under "WooCommerce→Settin
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Tweak - Moved settings under `Settings->Products->Display`.
 
 = 1.0.1 =
 * Fix - Static PHP notices.

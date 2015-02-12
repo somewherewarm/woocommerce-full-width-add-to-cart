@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: WooCommerce Full-Width Add to Cart Forms
-Description: A handy plugin for optimizing the add-to-cart form layout of complex WooCommerce product types, which may appear very narrow or squeezed.
-Version:     1.0.1
+Plugin Name: WooCommerce Stacked Add-to-Cart Product Forms
+Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types under the main image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
+Version:     1.0.2
 Author:      SomewhereWarm
-Author URI:  http://www.somewherewarm.net
+Author URI:  http://www.somewherewarm.net/
 */
 
 class WC_Full_Page_Add_To_Cart {
@@ -13,11 +13,9 @@ class WC_Full_Page_Add_To_Cart {
 
 		add_action( 'init', __CLASS__ . '::wc_fw_single_add_to_cart' );
 
-		// Add "Add-to-Cart Layout" section under "Products"
-		add_filter( 'woocommerce_get_sections_products', __CLASS__ . '::wc_fw_add_section' );
+		// Add settings section under "Products->Display"
+		add_filter( 'woocommerce_product_settings', __CLASS__ . '::wc_fw_all_settings' );
 
-		// Add settings in the new section
-		add_filter( 'woocommerce_get_settings_products', __CLASS__ . '::wc_fw_all_settings', 10, 2 );
 	}
 
 	public static function wc_fw_single_add_to_cart() {
@@ -67,46 +65,33 @@ class WC_Full_Page_Add_To_Cart {
 
 	}
 
-	public static function wc_fw_add_section( $sections ) {
+	public static function wc_fw_all_settings( $settings ) {
 
-		$sections[ 'wc_fw_add_to_cart' ] = __( 'Add-to-Cart Form Layout', 'woocommerce-full-width-add-to-cart' );
+		$fw_setting = array(
+			'id'                => 'wc_fw_add_to_cart_layout_types',
+			'title'             => __( 'Force Stacked Layout', 'woocommerce-full-width-add-to-cart' ),
+			'type'              => 'multiselect',
+			'class'             => 'chosen_select',
+			'css'               => 'width: 450px;',
+			'desc'              => '<div>' . __( 'The product types selected here will use a modified product details layout, with the add-to-cart form stacked under the main product image and summary.', 'woocommerce-full-width-add-to-cart' ) . '</div>',
+			'desc_tip'          => true,
+			'default'           => '',
+			'options'           => self::get_product_types(),
+			'custom_attributes' => array(
+				'data-placeholder' => __( 'Select some product types&hellip;', 'woocommerce-full-width-add-to-cart' )
+			)
+		);
 
-		return $sections;
-	}
+		$new_settings = array();
 
-	public static function wc_fw_all_settings( $settings, $current_section ) {
-
-		if ( $current_section == 'wc_fw_add_to_cart' ) {
-
-			$settings = array();
-
-			// Add Title to the Settings
-			$settings[] = array( 'name' => __( 'Add-to-Cart Form Layout Settings', 'woocommerce-full-width-add-to-cart' ), 'type' => 'title', 'desc' => __( 'If the add-to-cart form of your products appears very narrow or squeezed, you can move the add-to-cart section under the product image and summary.', 'woocommerce-full-width-add-to-cart' ), 'id' => 'wc_fw_add_to_cart' );
-
-			// Add product type multi-select
-			$settings[] = array(
-				'id'				=> 'wc_fw_add_to_cart_layout_types',
-				'title'				=> __( 'Product Types', 'woocommerce-full-width-add-to-cart' ),
-				'type'				=> 'multiselect',
-				'class'				=> 'chosen_select',
-				'css'				=> 'width: 450px;',
-				'desc'				=> '<div>' . __( 'The product types selected here will use the modified, full-width layout.', 'woocommerce-full-width-add-to-cart' ) . '</div>',
-				'default'			=> '',
-				'options'			=> self::get_product_types(),
-				'custom_attributes' => array(
-					'data-placeholder' => __( 'Select some product types&hellip;', 'woocommerce-full-width-add-to-cart' )
-				)
-			);
-
-			$settings[] = array( 'type' => 'sectionend', 'id' => 'wc_fw_add_to_cart' );
-
-			return $settings;
-
-		} else {
-
-			return $settings;
-
+		foreach ( $settings as $i => $setting ) {
+			if ( $setting[ 'id' ] === 'woocommerce_enable_ajax_add_to_cart' ) {
+				$new_settings[] = $fw_setting;
+			}
+			$new_settings[] = $settings[ $i ];
 		}
+
+		return $new_settings;
 
 	}
 
@@ -117,7 +102,7 @@ class WC_Full_Page_Add_To_Cart {
 		$terms = get_terms( 'product_type', array( 'hide_empty' => 0 ) );
 
 		foreach ( $terms as $term )
-			$types[ $term->slug ] = ucfirst( $term->name ) . ' (' . $term->slug . ')';
+			$types[ $term->slug ] = ucfirst( $term->name );
 
 		return $types;
 	}
