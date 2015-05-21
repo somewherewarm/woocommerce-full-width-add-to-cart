@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Stacked Add-to-Cart Product Forms
 Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types under the main image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
 Version:     1.1.1
-Author:      SomewhereWarm
+Author:      franticpsyx, SomewhereWarm
 Author URI:  http://www.somewherewarm.net/
 */
 

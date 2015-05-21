@@ -1,6 +1,6 @@
 === WooCommerce Stacked Add-to-Cart Product Forms ===
 
-Contributors: franticpsyx
+Contributors: franticpsyx, SomewhereWarm
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 3.7.0
