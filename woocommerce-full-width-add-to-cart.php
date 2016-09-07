@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WooCommerce Stacked Add-to-Cart Product Forms
-Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types under the main image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
-Version:     1.1.1
-Author:      franticpsyx, SomewhereWarm
+Plugin Name: WooCommerce Stacked Product Layout
+Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
+Version:     1.1.2
+Author:      SomewhereWarm
 Author URI:  http://www.somewherewarm.net/
 */
 
@@ -11,16 +11,19 @@ class WC_Full_Page_Add_To_Cart {
 
 	public static function init() {
 
-		add_action( 'init', __CLASS__ . '::wc_fw_single_add_to_cart' );
+		// Hook the 'woocommerce_template_single_add_to_cart' function to the 'woocommerce_after_single_product_summary' hook if needed.
+		add_action( 'woocommerce_single_product_summary', __CLASS__ . '::wc_fw_single_add_to_cart' );
 
-		// Add settings section under "Products->Display"
+		// Add settings section under "Products->Display".
 		add_filter( 'woocommerce_product_settings', __CLASS__ . '::wc_fw_all_settings' );
-
 	}
 
+	/**
+	 * Hook the 'woocommerce_template_single_add_to_cart' function to the 'woocommerce_after_single_product_summary' hook if needed.
+	 */
 	public static function wc_fw_single_add_to_cart() {
 
-		// Unhook 'woocommerce_template_single_add_to_cart' from 'woocommerce_single_product_summary' 30
+		// Unhook 'woocommerce_template_single_add_to_cart' from 'woocommerce_single_product_summary' 30.
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
 		// Hook wc_fw_template_single_add_to_cart into 'woocommerce_template_single_add_to_cart' 30 and run 'woocommerce_single_product_summary' through it only if the product type doesn't need to be moved.
@@ -30,6 +33,9 @@ class WC_Full_Page_Add_To_Cart {
 		add_action( 'woocommerce_after_single_product_summary', __CLASS__ . '::wc_fw_single_add_to_cart_after_summary', 5 );
 	}
 
+	/**
+	 * Get product types to apply the change to.
+	 */
 	public static function wc_fw_get_types_to_move() {
 
 		$moved_types = get_option( 'wc_fw_add_to_cart_layout_types', array() );
@@ -37,6 +43,10 @@ class WC_Full_Page_Add_To_Cart {
 		return apply_filters( 'woocommerce_full_width_add_to_cart_types', $moved_types );
 	}
 
+	/**
+	 * When displaying a type that needs to be moved, call 'woocommerce_template_single_add_to_cart'.
+	 * Hooked into 'woocommerce_after_single_product_summary'.
+	 */
 	public static function wc_fw_single_add_to_cart_after_summary() {
 
 		global $product;
@@ -51,6 +61,10 @@ class WC_Full_Page_Add_To_Cart {
 		}
 	}
 
+	/**
+	 * When displaying a type that doesn't need to be moved, call 'woocommerce_template_single_add_to_cart' as usual.
+	 * Hooked into 'woocommerce_single_product_summary', same position as before.
+	 */
 	public static function wc_fw_template_single_add_to_cart() {
 
 		global $product;
@@ -58,13 +72,19 @@ class WC_Full_Page_Add_To_Cart {
 		// Get types to move
 		$moved_types = self::wc_fw_get_types_to_move();
 
-		if ( empty( $moved_types ) || ( ! is_array( $moved_types ) ) )
+		if ( empty( $moved_types ) || ( ! is_array( $moved_types ) ) ) {
 			woocommerce_template_single_add_to_cart();
-		elseif ( ! in_array( $product->product_type, $moved_types ) )
+		} elseif ( ! in_array( $product->product_type, $moved_types ) ) {
 			woocommerce_template_single_add_to_cart();
-
+		}
 	}
 
+	/**
+	 * Plugin settings added in the WC Product tab under the Display section.
+	 *
+	 * @param  array  $settings
+	 * @return array
+	 */
 	public static function wc_fw_all_settings( $settings ) {
 
 		$fw_setting = array(
@@ -92,17 +112,23 @@ class WC_Full_Page_Add_To_Cart {
 		}
 
 		return $new_settings;
-
 	}
 
+	/**
+	 * Gets all registered product types.
+	 *
+	 * @return array
+	 */
 	public static function get_product_types() {
 
 		$types = array();
-
 		$terms = get_terms( 'product_type', array( 'hide_empty' => 0 ) );
 
-		foreach ( $terms as $term )
-			$types[ $term->slug ] = ucfirst( $term->name );
+		if ( ! empty( $types ) ) {
+			foreach ( $terms as $term ) {
+				$types[ $term->slug ] = ucfirst( $term->name );
+			}
+		}
 
 		return $types;
 	}
