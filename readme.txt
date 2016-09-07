@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@som
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 4.1
 Tested up to: 4.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,10 @@ The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings
 
 
 == Changelog ==
+
+= 1.1.3 =
+* Tweak - Updated plugin name.
+* Tweak - Added `woocommerce_full_width_add_to_cart_section_classes` filter to allow adding classes to the stacked add-to-cart container.
 
 = 1.1.2 =
 * Tweak - Added docblocks.
