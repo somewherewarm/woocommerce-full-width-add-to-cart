@@ -4,8 +4,8 @@ Contributors: SomewhereWarm, franticpsyx
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 4.1
-Tested up to: 4.6
-Stable tag: 1.1.5
+Tested up to: 4.7
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings
 
 
 == Changelog ==
+
+= 1.1.6 =
+* Fix - WooCommerce 3.0 compatibility.
 
 = 1.1.5 =
 * Fix - Move the hook-in point from the `woocommerce_single_product_summary` to the `woocommerce_before_single_product` action - resolves some issues with themes that shuffle around the summary/description.
