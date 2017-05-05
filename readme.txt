@@ -1,7 +1,7 @@
 === WooCommerce Stacked Product Layout ===
 
 Contributors: SomewhereWarm, franticpsyx
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=psyx@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sw@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 4.1
 Tested up to: 4.7
@@ -21,10 +21,13 @@ If you are having issues with very narrow or squeezed product add-to-cart forms,
 
 The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings > Products > Display** section, where you can select which product types should use the modified, stacked layout.
 
+**Important**: The plugin may **not work** if your theme **overrides core WooCommerce template functions, or changes the default template action hook priorities**!
+
 == Installation ==
 
-1. Upload the plugin to the **/wp-content/plugins/** directory
-2. Activate the plugin through the **Plugins** menu in WordPress
+1. Upload the plugin to the **/wp-content/plugins/** directory.
+2. Activate the plugin through the **Plugins** menu in WordPress.
+3. Go to **WooCommerce > Settings > Products > Display** and configure the *Force Stacked Layout* option.
 
 
 == Changelog ==
