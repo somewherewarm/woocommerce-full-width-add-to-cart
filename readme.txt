@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sw@somew
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 4.1
 Tested up to: 4.7
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings
 
 
 == Changelog ==
+
+= 1.1.7 =
+* Tweak - Enqueue styles and apply "width: 100%" rule to the 'stacked-summary' div.
 
 = 1.1.6 =
 * Fix - WooCommerce 3.0 compatibility.

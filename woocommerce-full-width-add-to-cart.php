@@ -2,13 +2,31 @@
 /*
 Plugin Name: WooCommerce Stacked Product Layout
 Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
-Version:     1.1.6
+Version:     1.1.7
 Author:      SomewhereWarm
 Author URI:  http://somewherewarm.gr/
 */
 
 class WC_Full_Page_Add_To_Cart {
 
+	/**
+	 * Plugin version.
+	 * @var string
+	 */
+	public static $version = '1.1.7';
+
+	/**
+	 * Plugin URL getter.
+	 *
+	 * @return string
+	 */
+	public static function plugin_url() {
+		return untrailingslashit( plugins_url( '/', __FILE__ ) );
+	}
+
+	/**
+	 * Initialization.
+	 */
 	public static function init() {
 
 		// Hook the 'woocommerce_template_single_add_to_cart' function to the 'woocommerce_after_single_product_summary' hook if needed.
@@ -56,12 +74,16 @@ class WC_Full_Page_Add_To_Cart {
 
 		if ( ! empty( $moved_types ) && is_array( $moved_types ) && $product->is_type( $moved_types ) ) {
 
-			$classes = apply_filters( 'woocommerce_full_width_add_to_cart_section_classes', array( 'add-to-cart-summary' ) );
+			$classes = apply_filters( 'woocommerce_full_width_add_to_cart_section_classes', array( 'add-to-cart-summary', 'stacked-summary' ) );
 			$classes = implode( ' ', $classes );
 
-			echo '<div class="add-to-cart-summary ' . $classes . '" style="clear:both;">';
+			echo '<div class="' . $classes . '">';
 			woocommerce_template_single_add_to_cart();
 			echo '</div>';
+
+			wp_register_style( 'wc-single-product-stacked', self::plugin_url() . '/assets/css/wc-single-product-stacked.css', false, self::$version );
+			wp_enqueue_style( 'wc-single-product-stacked' );
+
 		}
 	}
 
