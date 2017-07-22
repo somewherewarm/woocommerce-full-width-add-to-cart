@@ -4,7 +4,7 @@ Contributors: SomewhereWarm, franticpsyx
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sw@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
 Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
 Requires at least: 4.1
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

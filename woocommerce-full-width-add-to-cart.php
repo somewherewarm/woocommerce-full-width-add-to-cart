@@ -1,11 +1,15 @@
 <?php
-/*
-Plugin Name: WooCommerce Stacked Product Layout
-Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
-Version:     1.1.7
-Author:      SomewhereWarm
-Author URI:  http://somewherewarm.gr/
-*/
+/**
+ * Plugin Name: WooCommerce Stacked Product Layout
+ * Description: A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
+ * Version:     1.1.7
+ *
+ * Author:      SomewhereWarm
+ * Author URI:  http://somewherewarm.gr/
+ *
+ * Requires at least: 4.1
+ * Tested up to: 4.8
+ */
 
 class WC_Full_Page_Add_To_Cart {
 
