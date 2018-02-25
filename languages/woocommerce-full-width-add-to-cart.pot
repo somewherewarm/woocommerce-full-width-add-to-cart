@@ -1,0 +1,77 @@
+# Copyright (C) 2018 SomewhereWarm
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Stacked Product Layout 1.2.0\n"
+"Report-Msgid-Bugs-To: support@somewherewarm.gr\n"
+"POT-Creation-Date: 2018-02-25 10:31:32+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+
+#: woocommerce-full-width-add-to-cart.php:133
+msgid "Product Details"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:152
+msgid "Layout"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:153
+msgid ""
+"Choose the Stacked option to move the add-to-cart form below the main "
+"product image and summary."
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:158
+msgid "Default"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:159
+msgid "Stacked"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:176
+msgid "Restrict To&hellip;"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:177
+msgid "Only use this layout with specific product types?"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:361
+msgid "Force Stacked Layout"
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:365
+msgid ""
+"The product types selected here will use a modified product details layout, "
+"with the add-to-cart form stacked under the main product image and summary."
+msgstr ""
+
+#: woocommerce-full-width-add-to-cart.php:370
+msgid "Select some product types&hellip;"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Stacked Product Layout"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A handy plugin for stacking the add-to-cart form content of complex "
+"WooCommerce product types below the main product image and summary. Useful "
+"if the add-to-cart section of your products appears very narrow or squeezed."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "SomewhereWarm"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://somewherewarm.gr/"
+msgstr ""
