@@ -1,25 +1,30 @@
 === WooCommerce Stacked Product Layout ===
 
 Contributors: SomewhereWarm, franticpsyx
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sw@somewherewarm.net&item_name=Donation+for+WooCommerce+Full+Width+Forms
-Tags: woocommerce, composite, bundle, form, add-to-cart, template, full-width, stacked, layout
-Requires at least: 4.1
-Tested up to: 4.8
-Stable tag: 1.1.7
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: woocommerce, product, composite, bundle, form, add-to-cart, template, full-width, stacked, layout, customizer
+Requires at least: 4.4
+Tested up to: 4.9
+WC requires at least: 2.6
+WC tested up to: 3.3
+Stable tag: 1.2.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary.
 
 == Description ==
 
-By default, WooCommerce places single-product summaries right next to the main product image/gallery section, which is ideal for displaying product descriptions, prices and meta. Add-to-cart forms are normally displayed inside the single-product summary, too, which works well when displaying Simple or Variable product forms. 
+By default, WooCommerce displays all single-product summary elements (price, meta, short description and form content) in a single column next to the main product image. This layout works very well with products that contain few form elements, such as Simple or Variable products.
 
-However, this layout is not particularly suitable for complex product types, such as Composites or Bundles, which require much more space for their form content.
+However, this styling/templating pattern is much less suitable for product forms containing multiple input elements, text blocks and/or images. Complex product types, such as Product Bundles and Composite Products, often end up looking squeezed between the main image and sidebar.
 
-If you are having issues with very narrow or squeezed product add-to-cart forms, you can use this plugin to move the add-to-cart form below the product image and summary section. 
+Many themes include options for modifying the WooCommerce single-product template layout, sometimes even for individual products. If your theme doesn't offer this flexibility, this plugin could do the trick.
 
-The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings > Products > Display** section, where you can select which product types should use the modified, stacked layout.
+For WooCommerce versions from **3.3** onwards, the plugin adds a dedicated "WooCommerce > Product Details" section under **Appearance > Customize**, which allows you to enable a **Stacked** layout and even associate specific **product types** with it.
+
+If you are using an older WooCommerce version, navigate to **Settings > Products > Display** section, and locate the "Force Stacked Layout" option, which provides the same functionality.
+
+**Note**: Recent versions of Product Bundles and Composite Products offer a **built-in solution that works with more themes** than the **Stacked Product Layout** plugin: Navigate to **Product Data > Advanced** and locate the **Form Location** option, then choose **After Summary** to stack the add-to-cart form under the main image and summary.
 
 **Important**: The plugin may **not work** if your theme **overrides core WooCommerce template functions, or changes the default template action hook priorities**!
 
@@ -29,8 +34,10 @@ The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings
 2. Activate the plugin through the **Plugins** menu in WordPress.
 3. Go to **WooCommerce > Settings > Products > Display** and configure the *Force Stacked Layout* option.
 
-
 == Changelog ==
+
+= 1.2.0 =
+* Fix - Added WooCommerce 3.3 compatibility. Navigate to "Appearance > Customize" and look for the "WooCommerce > Product Details" section.
 
 = 1.1.7 =
 * Tweak - Enqueue styles and apply "width: 100%" rule to the 'stacked-summary' div.
@@ -66,4 +73,4 @@ The plugin adds a "Force Stacked Layout" option under the WooCommerce **Settings
 * Initial version.
 
 == Upgrade Notice ==
-
+Added WooCommerce 3.3 compatibility. Navigate to "Appearance > Customize" and look for the "WooCommerce > Product Details" section.
