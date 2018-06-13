@@ -5,8 +5,8 @@ Tags: woocommerce, product, composite, bundle, form, add-to-cart, template, full
 Requires at least: 4.4
 Tested up to: 4.9
 WC requires at least: 2.6
-WC tested up to: 3.3
-Stable tag: 1.2.0
+WC tested up to: 3.4
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -35,6 +35,11 @@ If you are using an older WooCommerce version, navigate to **Settings > Products
 3. Go to **WooCommerce > Settings > Products > Display** and configure the *Force Stacked Layout* option.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix - "WooCommerce > Product Details" customizer section visibility.
+* Fix - Compatibility for "Form Location" option, recently introduced in Composite Products, Product Bundles and Mix and Match Products.
+* Tweak - Declare WooCommerce 3.4 support.
 
 = 1.2.0 =
 * Fix - Added WooCommerce 3.3 compatibility. Navigate to "Appearance > Customize" and look for the "WooCommerce > Product Details" section.
@@ -73,4 +78,4 @@ If you are using an older WooCommerce version, navigate to **Settings > Products
 * Initial version.
 
 == Upgrade Notice ==
-Added WooCommerce 3.3 compatibility. Navigate to "Appearance > Customize" and look for the "WooCommerce > Product Details" section.
+Added WooCommerce 3.3/3.4 compatibility. Navigate to "Appearance > Customize" and look for the "WooCommerce > Product Details" section.

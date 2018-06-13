@@ -1,8 +1,8 @@
 <?php
-/**
+/*
  * Plugin Name: WooCommerce Stacked Product Layout
  * Description: A handy plugin for stacking the add-to-cart form content of complex WooCommerce product types below the main product image and summary. Useful if the add-to-cart section of your products appears very narrow or squeezed.
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      SomewhereWarm
  * Author URI:  https://somewherewarm.gr/
  *
@@ -13,7 +13,7 @@
  * Tested up to: 4.9
  *
  * WC requires at least: 2.6
- * WC tested up to: 3.3
+ * WC tested up to: 3.4
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -113,7 +113,7 @@ class WC_Stacked_Product_Layout {
 		} else {
 			// Display options in Customizer.
 			add_action( 'customize_register', array( __CLASS__, 'add_customizer_section' ) );
-			// add_action( 'customize_controls_print_styles', array( __CLASS__, 'add_customizer_styles' ) );
+			add_action( 'customize_controls_print_styles', array( __CLASS__, 'add_customizer_styles' ) );
 			add_action( 'customize_controls_print_scripts', array( __CLASS__, 'add_customizer_scripts' ), 30 );
 		}
 	}
@@ -131,8 +131,8 @@ class WC_Stacked_Product_Layout {
 			'wc_spl_product_details',
 			array(
 				'title'    => __( 'Product Details', 'woocommerce-full-width-add-to-cart' ),
-				'priority' => 30,
-				'panel'    => 'woocommerce-full-width-add-to-cart',
+				'priority' => 10,
+				'panel'    => 'woocommerce',
 			)
 		);
 
@@ -189,7 +189,7 @@ class WC_Stacked_Product_Layout {
 	public static function add_customizer_styles() {
 		?>
 		<style type="text/css">
-			.customize-control-wc_spl_product_details_layout_types label {
+			#customize-control-wc_spl_product_details_layout_types label, #customize-control-wc_spl_product_details_layout label {
 				cursor: default;
 			}
 		</style>
@@ -286,8 +286,14 @@ class WC_Stacked_Product_Layout {
 		if ( 'default' === $layout ) {
 			$is_active = ! self::is_layout_active( 'stacked' );
 		} elseif ( 'stacked' === $layout ) {
-			$types      = self::get_stacked_types();
-			$is_active  = ! empty( $types ) && is_array( $types ) && $product->is_type( $types );
+
+			$types     = self::get_stacked_types();
+			$is_active = ! empty( $types ) && is_array( $types ) && $product->is_type( $types );
+
+			// Add compatibility for "Form location" option.
+			if ( $product->is_type( array( 'composite', 'bundle', 'mix-and-match' ) ) && is_callable( array( $product, 'get_add_to_cart_form_location' ) ) && 'after_summary' === $product->get_add_to_cart_form_location() ) {
+				$is_active = false;
+			}
 		}
 
 		return $is_active;

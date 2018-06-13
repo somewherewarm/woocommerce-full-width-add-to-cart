@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Stacked Product Layout 1.2.0\n"
+"Project-Id-Version: WooCommerce Stacked Product Layout 1.2.1\n"
 "Report-Msgid-Bugs-To: support@somewherewarm.gr\n"
-"POT-Creation-Date: 2018-02-25 10:31:32+00:00\n"
+"POT-Creation-Date: 2018-06-13 14:10:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,17 +43,17 @@ msgstr ""
 msgid "Only use this layout with specific product types?"
 msgstr ""
 
-#: woocommerce-full-width-add-to-cart.php:361
+#: woocommerce-full-width-add-to-cart.php:367
 msgid "Force Stacked Layout"
 msgstr ""
 
-#: woocommerce-full-width-add-to-cart.php:365
+#: woocommerce-full-width-add-to-cart.php:371
 msgid ""
 "The product types selected here will use a modified product details layout, "
 "with the add-to-cart form stacked under the main product image and summary."
 msgstr ""
 
-#: woocommerce-full-width-add-to-cart.php:370
+#: woocommerce-full-width-add-to-cart.php:376
 msgid "Select some product types&hellip;"
 msgstr ""
 

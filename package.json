@@ -6,7 +6,7 @@
 		"url": "https://github.com/somewherewarm/woocommerce-full-width-add-to-cart.git"
 	},
 	"license": "GPL-3.0+",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"main": "Gruntfile.js",
 	"devDependencies": {
 		"grunt": "~1.0.1",
