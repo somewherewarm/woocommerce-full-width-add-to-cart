@@ -1,0 +1,9 @@
+{
+    "name": "somewherewarm/woocommerce-full-width-add-to-cart",
+    "description": "A handy plugin for stacking the add-to-cart section of complex WooCommerce product types below the main product image and summary.",
+    "license": "GPL-3.0+",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "^1.6"
+    }
+}
